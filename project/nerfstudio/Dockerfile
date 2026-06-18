@@ -57,7 +57,7 @@ RUN git clone https://github.com/colmap/glomap.git && \
     cmake .. -GNinja \
         "-DCMAKE_CUDA_ARCHITECTURES=${CUDA_ARCHITECTURES}" \
         -DCMAKE_INSTALL_PREFIX=/build/glomap && \
-    ninja install -j$(nproc) && \
+    ninja install -j4 && \
     cd ~ && rm -rf glomap
 
 # Build and install COLMAP
@@ -68,7 +68,7 @@ RUN git clone https://github.com/colmap/colmap.git && \
     cmake .. -GNinja \
         "-DCMAKE_CUDA_ARCHITECTURES=${CUDA_ARCHITECTURES}" \
         -DCMAKE_INSTALL_PREFIX=/build/colmap && \
-    ninja install -j$(nproc) && \
+    ninja install -j4 && \
     cd ~ && rm -rf colmap
 
 # Install PyTorch 2.7.1 with CUDA 12.8 (first version with official Blackwell support)
@@ -87,7 +87,7 @@ RUN git clone --branch master --recursive \
     cd ~
 
 # Compile tiny-cuda-nn for Blackwell (sm_120)
-RUN TCNN_CUDA_ARCHITECTURES=120 pip install --no-cache-dir \
+RUN TCNN_CUDA_ARCHITECTURES=120 pip install --no-cache-dir --no-build-isolation \
     "git+https://github.com/NVlabs/tiny-cuda-nn.git#subdirectory=bindings/torch"
 
 RUN pip install --no-cache-dir pycolmap==0.6.1 pyceres==2.1 omegaconf==2.3.0
@@ -99,7 +99,7 @@ RUN git clone --branch main --depth 1 \
     export TORCH_CUDA_ARCH_LIST="12.0" && \
     export MAX_JOBS=4 && \
     GSPLAT_VERSION=$(grep -oP 'gsplat==\K[^\s,"'"'"']+' /tmp/nerfstudio/pyproject.toml) && \
-    pip install --no-cache-dir \
+    pip install --no-cache-dir --no-build-isolation \
         git+https://github.com/nerfstudio-project/gsplat.git@v${GSPLAT_VERSION} && \
     pip install --no-cache-dir /tmp/nerfstudio 'numpy<2.0.0' && \
     rm -rf /tmp/nerfstudio
