@@ -133,6 +133,7 @@ RUN apt-get update && \
         libqt5core5a \
         libqt5gui5 \
         libqt5widgets5 \
+        curl \
         python3.10 \
         python3.10-dev \
         python3-setuptools \
