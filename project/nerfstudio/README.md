@@ -3,7 +3,7 @@
 ## setup
 - GPU : RTX5060Ti VRAM 16GB
 
-### データのダウンロード
+### download dataset
 `nf-download-data`コマンドでサンプルファイルをダウンロードすることができるが、リンク切れを起こしているものが多い点に注意。
 
 2026/6/11 時点
@@ -17,6 +17,14 @@
 - nerfosr : OK
 - mill19 : OK
 - eyefultower : NG
+
+
+以下のコマンドでsdfstudioデータセットをダウンロード
+```
+ns-download-data sdfstudio
+```
+
+## train
 
 **`sdfstudio`のデータセットでプログラムが動作し始めることを確認。**
 以下のコマンドで学習を開始することができる。
