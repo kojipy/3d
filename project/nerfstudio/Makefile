@@ -9,6 +9,7 @@ run:
 	docker run --gpus all \
 		-v $(WORKSPACE):/workspace/ \
 		-v $(CACHE_DIR):/home/user/.cache/ \
+		-v data:/data
 		-p 7007:7007 \
 		--rm -it \
 		--shm-size=12gb \
