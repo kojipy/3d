@@ -11,12 +11,12 @@
 | データセット | ダウンロード | 学習に使用できるか |
 | :-----: | :-----: | :-----: |
 | blender | NG | - |
-| sitcoms3d | OK |  |
+| sitcoms3d | OK | NG |
 | nerfstudio | NG | - |
 | record3d | NG | - |
 | dnerf | NG | - |
-| phototourism | OK |  |
-| sdfstudio | OK |  |
+| phototourism | OK | NG |
+| sdfstudio | OK | NG |
 | nerfosr | NG | - |
 | mill19 | OK |  |
 | eyefultower | NG | - |
@@ -77,5 +77,5 @@ ns-download-data sdfstudio
 **`sdfstudio`のデータセットでプログラムが動作し始めることを確認。**
 以下のコマンドで学習を開始することができる。
 ```
-ns-train neus-facto sdfstudio-data --data /data/sdfstudio/sdfstudio-demo-data/dtu-scan65
+ns-train neus-facto sitcoms3d-data --data /data/sitcoms3d/ELR-apartment
 ```
