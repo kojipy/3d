@@ -76,7 +76,6 @@ ns-download-data sdfstudio
 
 **`sdfstudio`のデータセットでプログラムが動作し始めることを確認。**
 以下のコマンドで学習を開始することができる。
-※ 但しCUDAのバージョンが異なることで(5060Ti非対応)学習処理が回らない。
 ```
 ns-train neus-facto sdfstudio-data --data /data/sdfstudio/sdfstudio-demo-data/dtu-scan65
 ```
